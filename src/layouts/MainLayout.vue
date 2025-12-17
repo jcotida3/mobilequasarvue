@@ -1,18 +1,21 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="hHh lpR fFf">
+    <q-header elevated height="200px">
       <q-toolbar>
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-toolbar-title>AMIS</q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <!-- Avatar-->
+    <q-avatar size="40px" class="q-mr-md">
+      <img src="https://cdn.quasar.dev/img/avatar.png" alt="User Avatar" />
+    </q-avatar>
       </q-toolbar>
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label header> Essential Links </q-item-label>
+        <q-item-label header>Sidebar </q-item-label>
 
         <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" />
       </q-list>
