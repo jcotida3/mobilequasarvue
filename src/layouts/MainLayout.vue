@@ -20,6 +20,7 @@
         <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" />
       </q-list>
     </q-drawer>
+    
 
     <q-page-container>
       <router-view />

@@ -12,7 +12,7 @@
     <!-- Latest Updates -->
     <q-card flat bordered class="q-mb-md bg-white rounded-borders shadow-1">
       <q-card-section>
-        <q-badge color="primary" class="q-mb-sm">Latest Updates</q-badge>
+        <q-badge color="primary" class="q-mb-sm" style="height: 30px; line-height: 40px; padding: 0 12px;">Latest Updates</q-badge>
         <div class="text-body2">
           Faculty can now view and download their class lists under the “My Classes” option.
         </div>
@@ -20,7 +20,7 @@
     </q-card>
 
     <!-- Schedule for Activities -->
-    <q-card flat bordered class="q-mb-md bg-white rounded-borders shadow-1" style="max-height: 200px; overflow-y: auto;">
+    <q-card flat bordered class="q-mb-md bg-white rounded-borders shadow-1">
       <q-card-section>
         <div class="text-subtitle2 q-mb-md">Schedule for Activities</div>
 
