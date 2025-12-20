@@ -2,25 +2,52 @@
   <q-layout view="hHh lpR fFf">
     <q-header elevated height="200px">
       <q-toolbar>
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-
+        <q-btn flat dense round icon="menu" @click="toggleLeftDrawer" />
         <q-toolbar-title>AMIS</q-toolbar-title>
 
-        <!-- Avatar-->
-    <q-avatar size="40px" class="q-mr-md">
-      <img src="https://cdn.quasar.dev/img/avatar.png" alt="User Avatar" />
-    </q-avatar>
+        <q-btn flat round @click="$router.push('/profile')" class="q-ml-sm">
+          <q-avatar size="40px">
+            <img src="https://cdn.quasar.dev/img/avatar.png" alt="User Avatar" />
+          </q-avatar>
+        </q-btn>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header>Sidebar </q-item-label>
+    <q-drawer show-if-above v-model="leftDrawerOpen" bordered>
+      <q-item-label header>Sidebar</q-item-label>
 
-        <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" />
+      <q-list>
+        <q-item class="text-weight-bold" to="/home" clickable v-ripple exact>
+          <q-item-section avatar>
+            <q-icon name="home" />
+          </q-item-section>
+          <q-item-section>Dashboard</q-item-section>
+        </q-item>
+
+        
+
+        <!-- Student Portal with nested Enrollment -->
+        <q-expansion-item group="nav" label="Student Portal" icon="school">
+          <q-list padding class="q-pl-md">
+            <!-- Nested Expansion for Enrollment -->
+            <q-expansion-item label="Enrollment" class="text-weight">
+              <q-list padding class="q-pl-md">
+                <q-item clickable><q-item-section>Consent of Instructor</q-item-section></q-item>
+                <q-item clickable><q-item-section>Departmental Consent</q-item-section></q-item>
+                <q-item clickable><q-item-section>OCS Consent</q-item-section></q-item>
+                <q-item clickable><q-item-section>Prerogative Enrollment</q-item-section></q-item>
+                <q-item clickable><q-item-section>Enlistment Module</q-item-section></q-item>
+              </q-list>
+            </q-expansion-item>
+
+            <!-- Other modules under Student Portal -->
+            <q-item clickable to="/home/grade"><q-item-section>SET Module</q-item-section></q-item>
+            <q-item clickable><q-item-section>UPSCEE Module</q-item-section></q-item>
+          </q-list>
+        </q-expansion-item>
+
       </q-list>
     </q-drawer>
-    
 
     <q-page-container>
       <router-view />
@@ -30,52 +57,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
-  },
-]
 
 const leftDrawerOpen = ref(false)
 

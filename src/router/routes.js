@@ -1,5 +1,4 @@
 const routes = [
-
   {
     path: '/',
     name: 'login',
@@ -9,15 +8,33 @@ const routes = [
   {
     path: '/home',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    children: [
+      {
+        path: '',
+        component: () => import('pages/IndexPage.vue')
+      },
+      {
+        path: 'grade',
+        component: () => import('pages/GradesInfo.vue')
+      }
+    ]
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
+  {
+    path: '/profile',
+    component: () => import('layouts/ProfileLayout.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/ProfileInformation.vue')
+      }
+    ]
+  },
+
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
-  },
+    component: () => import('pages/ErrorNotFound.vue')
+  }
 ]
 
 export default routes
