@@ -1,51 +1,32 @@
 <template>
-  <template v-for="item in items" :key="item.title">
-    
-    <!-- Dropdown / expandable -->
-    <q-expansion-item
-      v-if="item.children && item.children.length"
-      :label="item.title"
-      :icon="item.icon"
-      group="nav"
-    >
-      <q-list padding>
-        <SidebarMenu :items="item.children" />
-      </q-list>
-    </q-expansion-item>
+  <q-scroll-area class="fit">
+    <q-list padding>
+      <q-item-label header>Main Navigation</q-item-label>
 
-    <!-- Normal link -->
-    <q-item
-      v-else
-      clickable
-      :to="isInternal(item.link) ? item.link : undefined"
-      :href="!isInternal(item.link) ? item.link : undefined"
-      :target="!isInternal(item.link) ? '_blank' : undefined"
-      exact
-    >
-      <q-item-section avatar v-if="item.icon">
-        <q-icon :name="item.icon" />
-      </q-item-section>
-      <q-item-section>
-        <q-item-label>{{ item.title }}</q-item-label>
-        <q-item-label v-if="item.caption" caption>{{ item.caption }}</q-item-label>
-      </q-item-section>
-    </q-item>
+      <q-item class="text-weight-bold" to="/home" clickable v-ripple exact>
+        <q-item-section avatar>
+          <q-icon name="home" />
+        </q-item-section>
+        <q-item-section>Dashboard</q-item-section>
+      </q-item>
 
-    <!-- Optional separator -->
-  </template>
+      <q-expansion-item group="nav" label="Student Portal" icon="school" default-opened>
+        <q-list class="q-pl-md">
+          
+          <q-expansion-item label="Enrollment"  header-class="text-weight-medium">
+            <q-list class="q-pl-md">
+              <q-item clickable v-ripple><q-item-section>Consent of Instructor</q-item-section></q-item>
+              <q-item clickable v-ripple><q-item-section>Departmental Consent</q-item-section></q-item>
+              <q-item clickable v-ripple><q-item-section>OCS Consent</q-item-section></q-item>
+              <q-item clickable v-ripple><q-item-section>Prerogative Enrollment</q-item-section></q-item>
+              <q-item clickable v-ripple><q-item-section>Enlistment Module</q-item-section></q-item>
+            </q-list>
+          </q-expansion-item>
+
+          <q-item clickable v-ripple><q-item-section>SET Module</q-item-section></q-item>
+          <q-item clickable v-ripple><q-item-section>UPSCEE Module</q-item-section></q-item>
+        </q-list>
+      </q-expansion-item>
+    </q-list>
+  </q-scroll-area>
 </template>
-
-<script setup>
-const { items } = defineProps({
-  items: {
-    type: Array,
-    default: () => [
-      { title: 'Home', icon: 'home', link: '/home' },
-    ],
-  },
-})
-
-function isInternal(link) {
-  return link.startsWith('/') // all router paths
-}
-</script>
