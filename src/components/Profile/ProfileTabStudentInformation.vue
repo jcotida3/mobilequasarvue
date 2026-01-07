@@ -11,6 +11,7 @@
         <q-tab name="grades" label="Grades" />
         <q-tab name="holds" label="Holds" />
         <q-tab name="accounts" label="Accounts" />
+        <q-tab name="class" label="Class" />
         <q-tab name="records" label="Records" />
       </q-tabs>
 
@@ -32,10 +33,14 @@
                 <q-item-section class="text-grey-7">Total Units Earned</q-item-section>
                 <q-item-section side class="text-weight-bold text-black">0</q-item-section>
               </q-item>
+              <q-item>
+                <q-item-section class="text-grey-7">Overall GWA</q-item-section>
+                <q-item-section side class="text-weight-bold text-black">0</q-item-section>
+              </q-item>
             </q-list>
 
             <q-expansion-item
-              label="View Computation Notes"
+              label="Notes"
               icon="info"
               header-class="text-grey-8"
               dense
@@ -62,6 +67,10 @@
               />
             </div>
           </q-card-section>
+        </q-tab-panel>
+
+        <q-tab-panel v-model="innerTab" name="holds">
+          <div class="bg-blue-1">Hello</div>
         </q-tab-panel>
 
         <q-tab-panel name="holds">No holds yet.</q-tab-panel>

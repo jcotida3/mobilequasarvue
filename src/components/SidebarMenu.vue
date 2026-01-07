@@ -12,13 +12,18 @@
 
       <q-expansion-item group="nav" label="Student Portal" icon="school" default-opened>
         <q-list class="q-pl-md">
-          
-          <q-expansion-item label="Enrollment"  header-class="text-weight-medium">
+          <q-expansion-item label="Enrollment" header-class="text-weight-medium" default-opened>
             <q-list class="q-pl-md">
-              <q-item clickable v-ripple><q-item-section>Consent of Instructor</q-item-section></q-item>
-              <q-item clickable v-ripple><q-item-section>Departmental Consent</q-item-section></q-item>
+              <q-item clickable v-ripple
+                ><q-item-section>Consent of Instructor</q-item-section></q-item
+              >
+              <q-item clickable v-ripple
+                ><q-item-section>Departmental Consent</q-item-section></q-item
+              >
               <q-item clickable v-ripple><q-item-section>OCS Consent</q-item-section></q-item>
-              <q-item clickable v-ripple><q-item-section>Prerogative Enrollment</q-item-section></q-item>
+              <q-item clickable v-ripple
+                ><q-item-section>Prerogative Enrollment</q-item-section></q-item
+              >
               <q-item clickable v-ripple><q-item-section>Enlistment Module</q-item-section></q-item>
             </q-list>
           </q-expansion-item>
