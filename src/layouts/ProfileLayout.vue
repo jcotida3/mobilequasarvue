@@ -1,7 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
 
-    
 
     <!-- Page Content -->
     <q-page-container>

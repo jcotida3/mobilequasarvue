@@ -2,7 +2,7 @@ const routes = [
   {
     path: '/',
     name: 'login',
-    component: () => import('pages/LoginPage.vue')
+    component: () => import('pages/LoginPage.vue'),
   },
 
   {
@@ -11,13 +11,13 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import('pages/IndexPage.vue')
+        component: () => import('pages/IndexPage.vue'),
       },
       {
-        path: 'grade',
-        component: () => import('pages/GradesInfo.vue')
-      }
-    ]
+        path: '/enlistment',
+        component: () => import('pages/EnlistmentModule.vue'),
+      },
+    ],
   },
 
   {
@@ -26,15 +26,15 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import('pages/ProfileInformation.vue')
-      }
-    ]
+        component: () => import('pages/ProfileInformation.vue'),
+      },
+    ],
   },
 
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
+    component: () => import('pages/ErrorNotFound.vue'),
+  },
 ]
 
 export default routes

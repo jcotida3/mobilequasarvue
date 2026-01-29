@@ -10,7 +10,13 @@
         <q-item-section>Dashboard</q-item-section>
       </q-item>
 
-      <q-expansion-item group="nav" label="Student Portal" icon="school" default-opened>
+      <q-expansion-item
+        group="nav"
+        header-class="text-weight-medium"
+        label="Student Portal"
+        icon="school"
+        default-opened
+      >
         <q-list class="q-pl-md">
           <q-expansion-item label="Enrollment" header-class="text-weight-medium" default-opened>
             <q-list class="q-pl-md">
@@ -24,7 +30,9 @@
               <q-item clickable v-ripple
                 ><q-item-section>Prerogative Enrollment</q-item-section></q-item
               >
-              <q-item clickable v-ripple><q-item-section>Enlistment Module</q-item-section></q-item>
+              <q-item clickable v-ripple to="/enlistment"
+                ><q-item-section>Enlistment Module</q-item-section></q-item
+              >
             </q-list>
           </q-expansion-item>
 

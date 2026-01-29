@@ -11,6 +11,7 @@ const activeTab = ref('profile')
 const loading = ref(false)
 
 const personalInfo = ref({
+  campusId: '202100142',
   firstName: 'Warren',
   middleName: 'Mendoza',
   lastName: 'Miras',
@@ -71,6 +72,9 @@ const saveProfile = () => {
         </q-avatar>
         <div class="text-h5 q-mb-xs">{{ personalInfo.fullName }}</div>
         <div class="text-subtitle1 opacity-80">{{ personalInfo.email }}</div>
+        <q-chip color="white" text-color="primary" icon="badge" class="q-mt-sm">
+          {{ personalInfo.campusId }}
+        </q-chip>
       </div>
     </div>
 
